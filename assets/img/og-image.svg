@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#c8a566" stroke-width="2"/>
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#d8cbb0" stroke-width="1"/>
+  <circle cx="600" cy="150" r="46" fill="#7b2e26"/>
+  <circle cx="600" cy="150" r="40" fill="none" stroke="#c8a566" stroke-width="2"/>
+  <text x="600" y="166" font-family="Georgia, serif" font-size="44" fill="#f5efe1" text-anchor="middle">द</text>
+  <text x="600" y="300" font-family="Georgia, serif" font-size="68" fill="#2c2218" text-anchor="middle">Devesh Chetan Shah</text>
+  <text x="600" y="360" font-family="Georgia, serif" font-size="30" letter-spacing="6" fill="#b3893f" text-anchor="middle">INDOLOGIST &#183; EPIGRAPHIST &#183; SANSKRIT SCHOLAR</text>
+  <text x="600" y="440" font-family="Georgia, serif" font-size="26" fill="#5a4d3c" text-anchor="middle">Palaeography &#183; Epigraphy &#183; Numismatics &#183; Jaina Studies</text>
+  <rect x="500" y="490" width="200" height="3" fill="#7b2e26"/>
+</svg>

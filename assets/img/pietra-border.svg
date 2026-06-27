@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- inlaid framing lines (black marble + gold), as on a parchin kari dado band -->
+  <g stroke-linecap="round">
+    <line x1="0" y1="7"  x2="200" y2="7"  stroke="#241d18" stroke-width="1.6"/>
+    <line x1="0" y1="10.5" x2="200" y2="10.5" stroke="#b3893f" stroke-width="0.9"/>
+    <line x1="0" y1="49.5" x2="200" y2="49.5" stroke="#b3893f" stroke-width="0.9"/>
+    <line x1="0" y1="53" x2="200" y2="53" stroke="#241d18" stroke-width="1.6"/>
+  </g>
+
+  <!-- interlacing ogee vine (the dark lattice of the inlay) -->
+  <g fill="none" stroke="#241d18" stroke-width="1.5">
+    <path d="M0,30 Q50,14 100,30 T200,30"/>
+    <path d="M0,30 Q50,46 100,30 T200,30"/>
+  </g>
+
+  <!-- jade leaf clusters in the lobes -->
+  <g fill="#465f3c">
+    <ellipse cx="50"  cy="19" rx="2.8" ry="6.2" transform="rotate(-22 50 19)"/>
+    <ellipse cx="50"  cy="19" rx="2.8" ry="6.2" transform="rotate(22 50 19)"/>
+    <ellipse cx="150" cy="41" rx="2.8" ry="6.2" transform="rotate(-22 150 41)"/>
+    <ellipse cx="150" cy="41" rx="2.8" ry="6.2" transform="rotate(22 150 41)"/>
+  </g>
+
+  <!-- carnelian-maroon lotus at the central node -->
+  <g fill="#7b2e26">
+    <g transform="translate(100 30)">
+      <ellipse rx="2.9" ry="7.4"/>
+      <ellipse rx="2.9" ry="7.4" transform="rotate(72)"/>
+      <ellipse rx="2.9" ry="7.4" transform="rotate(144)"/>
+      <ellipse rx="2.9" ry="7.4" transform="rotate(216)"/>
+      <ellipse rx="2.9" ry="7.4" transform="rotate(288)"/>
+    </g>
+    <circle cx="50"  cy="30" r="2.3"/>
+    <circle cx="150" cy="30" r="2.3"/>
+  </g>
+  <circle cx="100" cy="30" r="2.5" fill="#b3893f"/>
+
+  <!-- gold lozenge nodes at the tile joins -->
+  <g fill="#b3893f">
+    <rect x="-3" y="27" width="6" height="6" transform="rotate(45 0 30)"/>
+    <rect x="197" y="27" width="6" height="6" transform="rotate(45 200 30)"/>
+  </g>
+</svg>

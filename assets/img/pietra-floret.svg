@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 26" width="130" height="26">
+  <!-- gold inlay stems -->
+  <g stroke="#b3893f" stroke-width="1" stroke-linecap="round">
+    <line x1="10" y1="13" x2="48" y2="13"/>
+    <line x1="82" y1="13" x2="120" y2="13"/>
+  </g>
+  <!-- gold lozenge terminals -->
+  <g fill="#b3893f">
+    <rect x="4" y="9.5" width="7" height="7" transform="rotate(45 7.5 13)"/>
+    <rect x="119" y="9.5" width="7" height="7" transform="rotate(45 122.5 13)"/>
+  </g>
+  <!-- jade leaves flanking the bloom -->
+  <g fill="#465f3c">
+    <ellipse cx="50" cy="13" rx="2.6" ry="6" transform="rotate(-28 50 13)"/>
+    <ellipse cx="80" cy="13" rx="2.6" ry="6" transform="rotate(28 80 13)"/>
+  </g>
+  <!-- central carnelian lotus -->
+  <g fill="#7b2e26" transform="translate(65 13)">
+    <ellipse rx="2.7" ry="6.6"/>
+    <ellipse rx="2.7" ry="6.6" transform="rotate(72)"/>
+    <ellipse rx="2.7" ry="6.6" transform="rotate(144)"/>
+    <ellipse rx="2.7" ry="6.6" transform="rotate(216)"/>
+    <ellipse rx="2.7" ry="6.6" transform="rotate(288)"/>
+  </g>
+  <circle cx="65" cy="13" r="2.3" fill="#b3893f"/>
+</svg>
