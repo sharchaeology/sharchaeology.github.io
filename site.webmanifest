@@ -1,0 +1,12 @@
+{
+  "name": "Devesh Chetan Shah — Indologist & Epigraphist",
+  "short_name": "D. C. Shah",
+  "description": "Indologist specialising in Palaeography, Epigraphy & Numismatics, Sanskrit, Prakrit and Pali.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5efe1",
+  "theme_color": "#7b2e26",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
