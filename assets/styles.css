@@ -1,0 +1,502 @@
+/* =================================================================
+   Devesh Chetan Shah — CV Landing Page
+   Vintage minimalist · Indian ethos · Pietra Dura (parchin kari) accents
+   Palette: parchment, sepia ink, sindoor-maroon, antique gold, jade, indigo
+   Type: Gandhari Unicode (Roman/IAST) · Sanskrit 2003 (Devanagari)
+   ================================================================= */
+
+/* ---- Local fonts: Gandhari Unicode (Roman, full IAST diacritics) ---- */
+@font-face {
+  font-family: "Gandhari Unicode";
+  src: url("../fonts/GandhariUnicode-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Gandhari Unicode";
+  src: url("../fonts/GandhariUnicode-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Gandhari Unicode";
+  src: url("../fonts/GandhariUnicode-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Gandhari Unicode";
+  src: url("../fonts/GandhariUnicode-BoldItalic.ttf") format("truetype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* ---- Local font: Sanskrit 2003 (Devanagari) ---- */
+@font-face {
+  font-family: "Sanskrit 2003";
+  src: url("../fonts/Sanskrit2003.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* Paper & ink */
+  --paper:      #f5efe1;   /* parchment */
+  --paper-2:    #efe7d4;   /* deeper parchment for alt sections */
+  --card:       #fbf7ec;   /* card surface */
+  --ink:        #2c2218;   /* sepia black */
+  --ink-soft:   #5a4d3c;   /* muted body */
+  --line:       #d8cbb0;   /* hairline borders */
+
+  /* Accents */
+  --maroon:     #7b2e26;   /* sindoor / deep maroon */
+  --maroon-dk:  #5e2019;
+  --gold:       #b3893f;   /* antique gold */
+  --gold-soft:  #c8a566;
+  --indigo:     #28406b;   /* manuscript indigo */
+
+  /* Jade — pietra dura inlay green */
+  --jade:       #465f3c;
+
+  /* Type */
+  --f-display: "Marcellus", "Gandhari Unicode", "Cormorant Garamond", Georgia, serif;
+  --f-body:    "Gandhari Unicode", "EB Garamond", Georgia, "Times New Roman", serif;
+  --f-deva:    "Sanskrit 2003", "Tiro Devanagari Sanskrit", "EB Garamond", serif;
+
+  --maxw: 1120px;
+  --radius: 4px;
+  --shadow: 0 8px 28px rgba(60, 40, 20, 0.10);
+}
+
+/* ------------------------- Reset ------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 1.075rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* subtle paper grain */
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(179, 137, 63, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(40, 64, 107, 0.04), transparent 45%);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--maroon); text-decoration: none; transition: color .2s ease; }
+a:hover { color: var(--maroon-dk); }
+h1, h2 { font-family: var(--f-display); font-weight: 400; line-height: 1.2; color: var(--ink); }
+/* h3/h4 carry transliterated terms (Brāhmī, Saṭṭaka…) — Gandhari renders the diacritics uniformly */
+h3, h4 { font-family: var(--f-body); font-weight: 600; line-height: 1.25; color: var(--ink); }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; background: var(--maroon); color: #fff;
+  padding: .6rem 1rem; z-index: 200; border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { left: 0; }
+
+/* ------------------------- Header / Nav ------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245, 239, 225, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
+
+.brand { display: flex; align-items: center; gap: .7rem; color: var(--ink); }
+.brand-mark {
+  font-family: var(--f-deva); font-size: 1.5rem; color: var(--paper);
+  background: var(--maroon); width: 42px; height: 42px; flex: 0 0 42px;
+  display: grid; place-items: center; border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--gold-soft);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--f-display); font-size: 1.12rem; letter-spacing: .02em; }
+.brand-sub { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+
+.primary-nav ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
+.primary-nav a {
+  color: var(--ink-soft); font-size: .9rem; letter-spacing: .06em;
+  text-transform: uppercase; position: relative; padding: .25rem 0;
+}
+.primary-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px;
+  background: var(--gold); transition: width .25s ease;
+}
+.primary-nav a:hover { color: var(--maroon); }
+.primary-nav a:hover::after { width: 100%; }
+.primary-nav a.active { color: var(--maroon); }
+.primary-nav a.active::after { width: 100%; }
+.nav-cta {
+  color: var(--maroon) !important; border: 1px solid var(--gold-soft);
+  padding: .35rem .9rem !important; border-radius: var(--radius);
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover { background: var(--maroon); color: #fff !important; border-color: var(--maroon); }
+
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px; background: none; border: none;
+  cursor: pointer; padding: 8px;
+}
+.nav-toggle span { width: 26px; height: 2px; background: var(--ink); transition: .3s; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ------------------------- Buttons ------------------------- */
+.btn {
+  display: inline-block; font-family: var(--f-display); font-size: .95rem;
+  letter-spacing: .05em; padding: .75rem 1.7rem; border-radius: var(--radius);
+  cursor: pointer; transition: all .25s ease; border: 1px solid transparent;
+}
+.btn-primary { background: var(--maroon); color: #fdf8ee; box-shadow: var(--shadow); }
+.btn-primary:hover { background: var(--maroon-dk); color: #fff; transform: translateY(-2px); }
+.btn-ghost { border-color: var(--gold-soft); color: var(--maroon); }
+.btn-ghost:hover { background: rgba(179,137,63,.1); color: var(--maroon-dk); }
+.btn.lg { padding: .9rem 2.4rem; font-size: 1.05rem; margin-top: 1.5rem; }
+
+/* ------------------------- Hero ------------------------- */
+.hero { padding: 4rem 0 0; position: relative; overflow: hidden; }
+.hero::before {
+  /* faint mandala motif */
+  content: ""; position: absolute; top: -120px; right: -120px;
+  width: 460px; height: 460px; border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at center, transparent 0 18px, rgba(179,137,63,.06) 18px 19px);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.25fr 0.85fr; gap: 3rem; align-items: center;
+}
+.eyebrow {
+  font-size: .8rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 1rem;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem); margin: 0 0 .5rem; letter-spacing: .01em;
+}
+.sanskrit-line {
+  font-family: var(--f-deva); font-size: 1.35rem; color: var(--maroon);
+  margin: 0 0 1.4rem; letter-spacing: .02em;
+}
+.hero-lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 38ch; margin: 0 0 1.8rem; }
+.hero-lead strong { color: var(--ink); font-weight: 500; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-meta {
+  list-style: none; margin: 2.4rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 1.8rem;
+  border-top: 1px solid var(--line); padding-top: 1.6rem;
+}
+.hero-meta li { display: flex; flex-direction: column; font-size: 1rem; }
+.hero-meta span {
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: .2rem;
+}
+
+/* Portrait */
+.hero-portrait { margin: 0; text-align: center; }
+.portrait-frame {
+  position: relative; border: 1px solid var(--gold-soft); padding: 12px;
+  background: var(--card); box-shadow: var(--shadow);
+  border-radius: 6px;
+}
+.portrait-frame::after {
+  content: ""; position: absolute; inset: 5px; border: 1px solid var(--line);
+  border-radius: 4px; pointer-events: none;
+}
+.portrait-frame img {
+  width: 100%; aspect-ratio: 13/16; object-fit: cover; border-radius: 3px;
+}
+.portrait-placeholder {
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  aspect-ratio: 13/16; border-radius: 3px;
+  background:
+    repeating-linear-gradient(45deg, rgba(179,137,63,.06) 0 12px, transparent 12px 24px),
+    var(--paper-2);
+  color: var(--ink-soft); gap: .4rem;
+}
+.ph-glyph { font-size: 2.6rem; }
+.ph-text { font-family: var(--f-display); font-size: 1.3rem; color: var(--maroon); }
+.ph-note { font-size: .78rem; letter-spacing: .05em; color: var(--gold); }
+.hero-portrait figcaption {
+  margin-top: .9rem; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold);
+}
+/* ---- Pietra dura inlay band (parchin kari dado) ---- */
+.pietra-band, .hero-rule {
+  height: 54px; margin: 0; border: none;
+  background:
+    url("../img/pietra-border.svg") center / auto 54px repeat-x,
+    /* marble ground with faint veining */
+    linear-gradient(180deg, #fbf8f1, #f3ecdd);
+}
+.hero-rule { margin-top: 3.5rem; }
+.pietra-band { box-shadow: inset 0 1px 0 rgba(36,29,24,.06), inset 0 -1px 0 rgba(36,29,24,.06); }
+
+/* ------------------------- Sections ------------------------- */
+.section { padding: 4.5rem 0; }
+.section-alt {
+  background: var(--paper-2);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  /* faint marble veining, as on a pietra dura ground */
+  background-image:
+    linear-gradient(115deg, transparent 0 38%, rgba(255,255,255,.5) 38.5% 39%, transparent 39.5%),
+    linear-gradient(115deg, transparent 0 61%, rgba(70,95,60,.05) 61.4% 61.8%, transparent 62.2%),
+    linear-gradient(70deg,  transparent 0 78%, rgba(123,46,38,.04) 78.4% 78.8%, transparent 79.2%);
+  background-size: 520px 100%, 700px 100%, 600px 100%;
+}
+
+.section-head { margin-bottom: 2.6rem; }
+.section-head.center { text-align: center; }
+.kicker {
+  font-family: var(--f-deva); font-size: .95rem; color: var(--gold); margin: 0 0 .3rem;
+  letter-spacing: .04em;
+}
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 2.9rem); margin: 0;
+}
+/* Pietra dura floret — carnelian lotus, jade leaves, gold inlay stems */
+.ornament {
+  display: block; width: 130px; height: 26px; margin-top: 1rem;
+  background: url("../img/pietra-floret.svg") left center / 130px 26px no-repeat;
+}
+.section-head.center .ornament { margin-left: auto; margin-right: auto; background-position: center; }
+
+.subhead {
+  font-size: 1.5rem; margin: 3rem 0 1.3rem; color: var(--maroon);
+  display: flex; align-items: center; gap: .8rem;
+}
+.subhead::before {
+  content: "❖"; color: var(--gold); font-size: .9rem;
+}
+
+/* ------------------------- About ------------------------- */
+.about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.6rem; align-items: start; }
+.about-prose p { color: var(--ink-soft); margin: 0 0 1.2rem; }
+.about-prose strong { color: var(--ink); font-weight: 500; }
+.dropcap::first-letter {
+  font-family: var(--f-display); float: left; font-size: 3.6rem; line-height: .8;
+  padding: .25rem .5rem .1rem 0; color: var(--maroon);
+}
+.about-card {
+  background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--maroon);
+  padding: 1.6rem 1.7rem; box-shadow: var(--shadow); border-radius: var(--radius);
+}
+.about-card h3 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--maroon); }
+.about-card dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: .8rem; }
+.about-card dt {
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+}
+.about-card dd { margin: .1rem 0 0; font-size: 1rem; }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; margin: .5rem 0 0; }
+.chips li {
+  background: var(--card); border: 1px solid var(--gold-soft); color: var(--ink);
+  padding: .4rem 1rem; border-radius: 999px; font-size: .95rem;
+}
+.chips-quiet li {
+  display: flex; align-items: baseline; gap: .5rem; border-color: var(--line);
+  border-radius: var(--radius); font-size: .9rem;
+}
+.chips-quiet li span { font-size: .72rem; color: var(--gold); letter-spacing: .08em; }
+
+/* ------------------------- Timeline ------------------------- */
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before {
+  content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px;
+  background: linear-gradient(var(--gold-soft), var(--line));
+}
+.timeline li { position: relative; padding: 0 0 1.9rem 2.6rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: 3px; top: 7px; width: 14px; height: 14px;
+  background: var(--maroon); border-radius: 50%; box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--gold-soft);
+}
+.section-alt .timeline li::before { box-shadow: 0 0 0 3px var(--paper-2), 0 0 0 4px var(--gold-soft); }
+.t-date {
+  display: inline-block; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .3rem;
+}
+.t-body h3 { font-size: 1.3rem; margin: 0 0 .3rem; }
+.t-body p { margin: 0; color: var(--ink-soft); }
+.badge {
+  display: inline-block; font-family: var(--f-body); font-size: .72rem; letter-spacing: .05em;
+  background: rgba(123,46,38,.08); color: var(--maroon); border: 1px solid rgba(123,46,38,.25);
+  padding: .12rem .55rem; border-radius: 999px; vertical-align: middle; margin-left: .4rem;
+}
+.badge.sm { font-size: .68rem; }
+
+/* ------------------------- Cards grid ------------------------- */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+.cards-grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 720px; }
+.mini-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.3rem 1.4rem; transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold-soft); }
+.mini-card.feature { border-top: 3px solid var(--gold); grid-column: 1 / -1; }
+.mc-date {
+  font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
+}
+.mini-card h4 { font-size: 1.15rem; margin: .35rem 0 .5rem; }
+.mini-card p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
+
+/* ------------------------- Publications ------------------------- */
+.pub-list { list-style: none; margin: 0; padding: 0; counter-reset: pub; }
+.pub-list li {
+  position: relative; padding: 1.2rem 0 1.2rem 3.2rem; border-bottom: 1px dashed var(--line);
+  counter-increment: pub;
+}
+.pub-list li::before {
+  content: counter(pub, decimal-leading-zero); position: absolute; left: 0; top: 1.25rem;
+  font-family: var(--f-display); font-size: 1.1rem; color: var(--gold);
+}
+.pub-list li:last-child { border-bottom: none; }
+.pub-title { font-family: var(--f-body); font-weight: 600; font-size: 1.18rem; color: var(--ink); margin: 0 0 .25rem; }
+.pub-meta { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+.isbn {
+  display: inline-block; font-size: .76rem; letter-spacing: .04em; color: var(--indigo);
+  background: rgba(40,64,107,.07); padding: .05rem .5rem; border-radius: 3px; margin-left: .3rem;
+}
+
+/* ------------------------- Papers list ------------------------- */
+.paper-list { list-style: none; margin: 0; padding: 0; }
+.paper-list li { display: flex; gap: 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.paper-list li:last-child { border-bottom: none; }
+.p-year {
+  flex: 0 0 auto; font-family: var(--f-display); font-size: 1.05rem; color: var(--maroon);
+  width: 3.5rem;
+}
+.paper-list strong { font-weight: 600; color: var(--ink); }
+.paper-list em { color: var(--gold); font-style: italic; }
+
+/* ------------------------- Languages & Scripts ------------------------- */
+.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.lang-col h3 { font-size: 1.5rem; color: var(--maroon); margin: 0 0 1.2rem; }
+.lang-row { margin: 0 0 1rem; font-size: 1.1rem; }
+.lvl {
+  display: inline-block; min-width: 5.5rem; font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-right: .6rem;
+}
+.script-chips { list-style: none; display: flex; flex-wrap: wrap; gap: .7rem; margin: 0; padding: 0; }
+.script-chips li {
+  font-family: var(--f-body); background: var(--card); border: 1px solid var(--gold-soft);
+  color: var(--ink); padding: .55rem 1.1rem; border-radius: var(--radius); font-size: 1.05rem;
+  transition: all .2s ease;
+}
+.script-chips li:hover { background: var(--maroon); color: #fdf8ee; border-color: var(--maroon); }
+
+/* ------------------------- Beyond ------------------------- */
+.beyond-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.beyond-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.6rem; border-left: 3px solid var(--gold);
+}
+.beyond-card h3 { font-size: 1.35rem; color: var(--maroon); margin: 0 0 1rem; }
+.beyond-card ul { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); }
+.beyond-card li { margin-bottom: .6rem; }
+.beyond-card em { color: var(--ink); }
+
+/* ------------------------- Contact ------------------------- */
+.contact { text-align: center; }
+.contact-lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 46ch; margin: 0 auto 2rem; }
+.contact-list { list-style: none; margin: 0 auto; padding: 0; max-width: 520px; }
+.contact-list li {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 0; border-bottom: 1px dashed var(--line); text-align: left;
+}
+.c-label {
+  font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+  flex: 0 0 auto;
+}
+.contact-list a, .contact-list span:not(.c-label) { font-size: 1.05rem; text-align: right; }
+
+/* ------------------------- Footer ------------------------- */
+.site-footer {
+  background: var(--ink); color: #d8cbb0; padding: 3rem 0 2.2rem; margin-top: 1rem;
+  position: relative;
+}
+.site-footer::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold), var(--maroon));
+}
+.footer-wrap { text-align: center; }
+.foot-sanskrit { font-family: var(--f-deva); font-size: 1.3rem; color: var(--gold-soft); margin: 0 0 .8rem; }
+.foot-name { font-family: var(--f-display); font-size: 1.05rem; color: #f1e8d6; margin: 0 0 .4rem; }
+.foot-copy { font-size: .85rem; opacity: .7; margin: 0; }
+.to-top {
+  display: inline-block; margin-top: 1.2rem; color: var(--gold-soft); font-size: .85rem;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.to-top:hover { color: #fff; }
+
+/* ------------------------- Reveal animation ------------------------- */
+.section, .hero-copy, .hero-portrait { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+}
+
+/* ------------------------- Field figure (About) ------------------------- */
+.field-figure { margin: 2.6rem 0 0; }
+.frame-inlay {
+  position: relative; padding: 12px; background:
+    linear-gradient(180deg, #fbf8f1, #f3ecdd);
+  border: 1px solid var(--gold-soft); border-radius: 6px; box-shadow: var(--shadow);
+}
+.frame-inlay::after {
+  content: ""; position: absolute; inset: 5px; border: 1px solid var(--line);
+  border-radius: 4px; pointer-events: none;
+}
+.frame-inlay img {
+  width: 100%; max-height: 420px; object-fit: cover; object-position: center 35%;
+  border-radius: 3px;
+}
+.field-figure figcaption {
+  margin-top: .8rem; text-align: center; font-style: italic; color: var(--ink-soft);
+  font-size: .98rem;
+}
+
+/* ------------------------- Email reveal ------------------------- */
+.email-toggle {
+  font-family: var(--f-body); font-size: 1rem; color: var(--maroon);
+  background: rgba(123,46,38,.06); border: 1px dashed var(--gold-soft);
+  padding: .35rem .9rem; border-radius: var(--radius); cursor: pointer;
+  transition: all .2s ease; letter-spacing: .02em;
+}
+.email-toggle:hover { background: var(--maroon); color: #fdf8ee; border-color: var(--maroon); }
+.email-toggle::before { content: "✉  "; }
+.email-slot a { font-size: 1.05rem; word-break: break-all; }
+
+/* ------------------------- Responsive ------------------------- */
+@media (max-width: 880px) {
+  .nav-toggle { display: flex; }
+  .primary-nav {
+    position: fixed; inset: 68px 0 auto 0; background: var(--paper);
+    border-bottom: 1px solid var(--line); transform: translateY(-120%);
+    transition: transform .35s ease; box-shadow: var(--shadow);
+  }
+  .primary-nav.open { transform: translateY(0); }
+  .primary-nav ul { flex-direction: column; gap: 0; padding: .5rem 1.5rem 1.5rem; }
+  .primary-nav li { border-bottom: 1px solid var(--line); }
+  .primary-nav a { display: block; padding: .9rem 0; }
+  .nav-cta { display: inline-block; margin-top: .8rem; }
+
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-portrait { order: -1; max-width: 320px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; }
+  .lang-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 540px) {
+  body { font-size: 1.02rem; }
+  .container { padding: 0 1.1rem; }
+  .section { padding: 3.2rem 0; }
+  .brand-sub { display: none; }
+  .hero { padding-top: 2.5rem; }
+  .hero-meta { gap: 1.2rem; }
+  .contact-list li { flex-direction: column; align-items: flex-start; gap: .2rem; }
+  .contact-list a, .contact-list span:not(.c-label) { text-align: left; }
+  .paper-list li { flex-direction: column; gap: .3rem; }
+}
